@@ -1,0 +1,23 @@
+micronaut:
+    application:
+        name: hello-micronaut
+    main:
+        name: main-name
+datasources:
+    default:
+       url: jdbc:postgresql://localhost:5432/hello_micronaut?ssl=false
+       username: admin
+       password: admin
+       driverClassName: org.postgresql.Driver
+jpa:
+    default:
+        packages-to-scan:
+            - 'hello.models'
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                hbm2ddl:
+                    auto: validate
+                show_sql: true
+rabbitmq:
+    uri: amqp://localhost:5672
