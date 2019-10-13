@@ -5,8 +5,8 @@ micronaut:
         name: main-name
 datasources:
     default:
-       url: jdbc:postgresql://localhost:5432/hello_micronaut?ssl=false
-       username: admin
+       url: jdbc:postgresql://db:5432/hello_micronaut?ssl=false
+       username: hello_admin
        password: admin
        driverClassName: org.postgresql.Driver
 jpa:

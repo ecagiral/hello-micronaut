@@ -1,0 +1,23 @@
+version: '2.4'
+services:
+  db:
+    container_name: app-db.hello-micronaut.me
+    build: ./docker/postgres
+    ports:
+      - "5436:5432"
+    networks:
+      - hello_network
+  app:
+     container_name: app.hello-micronaut.me
+     build:
+        context: .
+        dockerfile: docker/app/Dockerfile
+     depends_on:
+        - db
+     ports:
+      - "8080:8080"
+     networks:
+      - hello_network
+networks:
+  hello_network:
+    driver: bridge
